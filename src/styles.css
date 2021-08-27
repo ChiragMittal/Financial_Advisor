@@ -83,7 +83,7 @@ input {
 .button_set{
   display: flex;
   align-items: center;
-  margin-left: 500px;
+  margin-left: 400px;
 }
 
 .single_button{
@@ -160,6 +160,7 @@ input {
     align-items: center;
     align-content: center;
     display: flex;
+    margin-right:100px;
 
 }
 
@@ -167,7 +168,7 @@ input {
   display: flex;
   flex-direction: column;
   width: 730px;
-  margin-left: 500px;
+  margin-left: 400px;
 }
 
 .risk-label-select {

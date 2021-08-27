@@ -60,7 +60,9 @@ class NewComponent extends React.Component {
       <div>
       {this.state.setComponent === 'Chart' && <Chartt className="chartt" data={data.data.filter(item=> item.risk == this.props.button.risk)} getComponent={this.getComponent.bind(this)} />}
       </div>
-      :null}
+      :<div>
+      {this.state.setComponent === 'Chart' && <Chartt className="chartt" data={data.data} getComponent={this.getComponent.bind(this)} />}
+      </div>}
 		
 		</div>
     );

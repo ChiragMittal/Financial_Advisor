@@ -7,7 +7,10 @@ class Chartt extends Component {
 	
 	render() {		
 		return (
+			<div>
+
 			
+	{this.props.data.length ==1 ? 
 		<div className="doughnut">
 			<Doughnut  width={400} height={400} data = {{labels: [
 					'bonds',
@@ -34,6 +37,12 @@ class Chartt extends Component {
 			
 			<button className="tableButton" onClick={this.props.getComponent}>Table</button>
 		</div>
+			:
+			<div className="doughnut">			
+			<button className="tableButton" onClick={this.props.getComponent}>Table</button>
+		</div>
+			}
+		</div>	
 		);
 	}
 }
