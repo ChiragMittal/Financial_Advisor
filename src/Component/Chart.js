@@ -3,7 +3,9 @@ import CanvasJSReact from '../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
  
 class Chart extends Component {
+	
 	render() {
+		console.log(this.props.data[0])
 		const options = {
 			animationEnabled: true,
 			title: {
@@ -13,7 +15,7 @@ class Chart extends Component {
 			data: [{
 				type: "doughnut",
 				showInLegend: true,
-				yValueFormatString: "#,###'%'",
+				yValueFormatString: "##,###'%'",
 				dataPoints: [
 					{ name: "bonds", y: `${this.props.data[0].bonds}` },
 					{ name: "largecap", y: `${this.props.data[0].largecap}` },
@@ -25,7 +27,9 @@ class Chart extends Component {
 		}
 		
 		return (
+			
 		<div>
+
 			<CanvasJSChart options = {options} />
 			<button onClick={this.props.getComponent}>Table</button>
 		</div>

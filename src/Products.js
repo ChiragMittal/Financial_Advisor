@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addPro } from "./actions/SimpleActions";
 import data from "./ApiData";
-
+import SingleButton from "./Component/SingleButton";
 import Table from './Component/Table';
 import Chart from './Component/Chart';
 import { Link } from "react-router-dom";
@@ -16,6 +16,12 @@ class NewComponent extends React.Component {
       setComponent:'Table',
     }
       
+  }
+
+  componentDidMount(){
+    if(this.props.button){
+      this.setState({getButton:this.props.button.risk})
+    }
   }
 
   getData(val) {
@@ -38,7 +44,8 @@ class NewComponent extends React.Component {
       <div className='app'>
 			
 				{data.data.map((item) => (
-					<button key={item.risk} onClick={() => this.getData(item.risk)}>{item.risk}</button>
+					// <button key={item.risk} onClick={() => this.getData(item.risk)}>{item.risk}</button>
+          <SingleButton item={item} button = {this.state.getButton} getData = {this.getData.bind(this)}/>
 				) )
 			}
       {this.props.button?<Link to="/button"><button>Continue</button></Link>:null}
