@@ -122,7 +122,7 @@ class app extends React.Component {
     return (
       
       <div>
-        <Link to="/"><button>Home</button></Link>
+        <Link to="/"><button className="single_buttons">Home</button></Link>
         { this.props.button ?
 
         <div>

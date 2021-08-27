@@ -21,7 +21,7 @@ export default function Table({ data,button,getComponent }) {
       ))}
       </table>
 
-      <button onClick={getComponent}>Chart</button>
+      <button className="chartButton" onClick={getComponent}>Chart</button>
     </div>
   );
 }

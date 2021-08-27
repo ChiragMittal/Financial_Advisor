@@ -4,7 +4,7 @@ import { addPro } from "./actions/SimpleActions";
 import data from "./ApiData";
 import SingleButton from "./Component/SingleButton";
 import Table from './Component/Table';
-import Chart from './Component/Chart';
+import Chartt from './Component/Chart';
 import { Link } from "react-router-dom";
 class NewComponent extends React.Component {
   constructor(props){
@@ -42,15 +42,26 @@ class NewComponent extends React.Component {
   render() {
     return (
       <div className='app'>
-			
-				{data.data.map((item) => (
+        <h1 className="heading">Financial Advisor</h1>
+        <div class="risk-selector-header-labels"><div class="risk-label-select">Please Select A Risk Level For Your Investment Portfolio</div><div class="risk-label-levels"><div class="risk-label">Low</div><div class="risk-label">High</div></div></div>
+        <div className="button_set">
+        {data.data.map((item) => (
 					// <button key={item.risk} onClick={() => this.getData(item.risk)}>{item.risk}</button>
           <SingleButton item={item} button = {this.state.getButton} getData = {this.getData.bind(this)}/>
-				) )
-			}
-      {this.props.button?<Link to="/button"><button>Continue</button></Link>:null}
-			{this.state.setComponent === 'Table' && <Table data={data.data} button={this.state.getButton} getComponent={this.getComponent.bind(this)}/> }
-			{this.state.setComponent === 'Chart' && <Chart data={data.data.filter(item=> item.risk == this.props.button.risk)} getComponent={this.getComponent.bind(this)} />}
+				) )}
+        {this.props.button?<Link to="/button"><button className="continue">Continue</button></Link>:null}
+        </div>
+				
+			
+      
+			{this.state.setComponent === 'Table' && <Table className="table" data={data.data} button={this.state.getButton} getComponent={this.getComponent.bind(this)}/> }
+
+      {this.state.getButton ? 
+      <div>
+      {this.state.setComponent === 'Chart' && <Chartt className="chartt" data={data.data.filter(item=> item.risk == this.props.button.risk)} getComponent={this.getComponent.bind(this)} />}
+      </div>
+      :null}
+		
 		</div>
     );
   }

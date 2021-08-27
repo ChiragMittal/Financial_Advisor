@@ -23,7 +23,7 @@ export default function RiskCalculator({ getValue,newAmount,difference,transfers
 
     <div>
         <h3>Please Enter Your Current Portfolio</h3>
-        <button onClick={parentCallback}>Evaluate</button>
+        <button onClick={parentCallback} className="single_buttons">Evaluate</button>
     
       
     <div className="risk-calculator-input-container">
